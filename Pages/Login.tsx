@@ -1,7 +1,7 @@
 import React from "react";
 
 import styled from "styled-components/native";
-import { ImageBackground, Text } from "react-native";
+import { ImageBackground } from "react-native";
 import { globalPadding } from "../Components/constants";
 
 const backgroundImage = require("../assets/640-Scenic-l.jpg");
@@ -25,6 +25,8 @@ const LoginPanel = styled.View`
   border-radius: 8px;
   background-color: lightblue;
   margin-top: ${-globalPadding}px;
+  width: 50%;
+  height: 30%;
 `;
 
 const LoginField = styled.View`
@@ -33,7 +35,9 @@ const LoginField = styled.View`
 `;
 
 const LoginHeader = styled.Text`
+  font-size: 18;
   text-align: center;
+  margin-bottom: 30px;
 `;
 
 const LoginLogo = styled.Text`
@@ -45,24 +49,29 @@ const LoginLogo = styled.Text`
 const ButtonText = styled.Text`
   font-size: 18px;
   color: navy;
-  margin-right: 15px;
+  margin: 0 10px;
 `;
 
 const ButtonRow = styled.View`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 100%;
   margin-top: 15px;
 `;
 
+const FieldText = styled.Text`
+  padding-left: 4px;
+`;
+
 const EmailInput = styled.TextInput`
-  border: 1px solid lightblue;
+  border: 1px solid navy;
   padding: 4px;
   border-radius: 4px;
 `;
 
 const PasswordInput = styled.TextInput`
-  border: 1px solid lightblue;
+  border: 1px solid navy;
   padding: 4px;
   border-radius: 4px;
 `;
@@ -107,7 +116,7 @@ export default class LoginPage extends React.PureComponent<IProps, IState> {
             <LoginLogo>[ --- --- --- A LOGO --- --- --- ]</LoginLogo>
             <LoginHeader>Welcome. Please log-in.</LoginHeader>
             <LoginField>
-              <Text>email</Text>
+              <FieldText>email</FieldText>
               <EmailInput
                 onChangeText={this.emailChange}
                 value={this.state.email}
@@ -115,7 +124,7 @@ export default class LoginPage extends React.PureComponent<IProps, IState> {
               />
             </LoginField>
             <LoginField>
-              <Text>password</Text>
+              <FieldText>password</FieldText>
               <PasswordInput
                 onChangeText={this.passwordChange}
                 value={this.state.password}
