@@ -4,7 +4,7 @@
 <h3>Potential Users:</h3>
 <p> TD (event organizer), coaches/captains, players, streamers/followers?</p>
 
-<h3>Goals</h3>
+<h3>Users and User Goals</h3>
 
 <h5>As an event organizer I would like:</h5>
 <ul>
@@ -36,5 +36,27 @@
   <li>to follow a twitter feed</li>
   <li>fantasy?? (stretch goal)</li>
   <li>to link to my team</li>
+</ul>
+  
+<h3>Potential Flow</h3>
+<span><b>bold</b> = Screen/screen goal, non-bold = Actionable content</span>
+<br/>
+<ul>
+  <li><b>Log In/Sign Up</b></li>
+  <ul>
+    <li><b>Home Dashboard</b></li>
+    <li><b>Displays "my" events, teams (shortcut to upcoming games???)</b></li>
+    <li>'Add' button === new team / new event</li>
+    <li>View a team</li>
+    <ul>
+      <li><b>Team Dashboard</b></li>
+      <li>Events</li>
+      <li>Stats</li>
+      <li>Edit Team</li>
+    </ul>
+  </ul>
+  <br/>
+  <span>Somewhere else:</span>
+  <li><b>Game Screen</b></li>
 </ul>
   
