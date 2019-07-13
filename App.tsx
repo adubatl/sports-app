@@ -4,8 +4,8 @@ import { StyleSheet }                               from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 // Pages
-import LoginPage  from "./Pages/Login";
-import SignUpPage from "./Pages/SignUp";
+import LoginPage     from "./Pages/Login";
+import HomeDashboard from "./Pages/HomeDashboard";
 
 const styles = StyleSheet.create({
     appContainer : {
@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
 
 const AppNavigator = createStackNavigator(
     {
-        Login  : LoginPage,
-        SignUp : SignUpPage,
+        Login         : LoginPage,
+        HomeDashboard : HomeDashboard,
     },
     {
         initialRouteName : 'Login',
