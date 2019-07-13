@@ -12,7 +12,6 @@ const LoginView = styled.View`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: ${globalPadding}px;
   height: 100%;
 `;
 
@@ -24,7 +23,6 @@ const LoginPanel = styled.View`
   align-items: center;
   border-radius: 8px;
   background-color: lightblue;
-  margin-top: ${-globalPadding}px;
   width: 50%;
   height: 30%;
 `;
@@ -58,6 +56,8 @@ const ButtonRow = styled.View`
   justify-content: center;
   width: 100%;
   margin-top: 15px;
+  background-color:red;
+  height: 100px;
 `;
 
 const FieldText = styled.Text`
@@ -100,6 +100,9 @@ export default class LoginPage extends React.PureComponent<IProps, IState> {
 
   onLoginPress = () => {
     console.log("I just fired the login pew pew");
+
+    // Navigate to the SignUp page.
+    this.props.navigation.navigate( 'SignUp' );
   };
 
   onRegisterPress = () => {
