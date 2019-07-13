@@ -1,5 +1,8 @@
 # sports-app
 
+<h2>PLEASE READ THE STANDARDS (in the wiki) BEFORE WORKING ON ANYTHING</h2>
+<p> They are literally there for a reason and will make our lives so much better</p>
+<p> If you would like or do make any changes to the standards please make sure everyone is notified </p>
 
 <h3>Potential Users:</h3>
 <p> TD (event organizer), coaches/captains, players, streamers/followers?</p>
