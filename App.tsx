@@ -1,10 +1,10 @@
 import React from "react";
 
-import { StyleSheet } from 'react-native';
+import { StyleSheet }                               from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 // Pages
-import LoginPage from "./Pages/Login";
+import LoginPage  from "./Pages/Login";
 import SignUpPage from "./Pages/SignUp";
 
 const styles = StyleSheet.create({
