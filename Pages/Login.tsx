@@ -91,6 +91,7 @@ export default class LoginPage extends React.PureComponent<IProps, IState> {
       password : ""
     };
   }
+
   emailChange = input => {
     this.setState( { email : input } );
   };
@@ -102,18 +103,21 @@ export default class LoginPage extends React.PureComponent<IProps, IState> {
   onLoginPress = () => {
     console.log( "I just fired the login pew pew" );
 
-    // Navigate to the SignUp page.
-    this.props.navigation.navigate( 'SignUp' );
+    // Navigate to the HomeDashboard.
+    this.props.navigation.navigate( 'HomeDashboard' );
   };
 
   onRegisterPress = () => {
-    console.log( "To the registration page AWAAAAAAAY" );
+    console.log( "AAAAAAAAAAAAnnnnddddd your're registered" );
+    // Navigate to the HomeDashboard.
+    this.props.navigation.navigate( 'HomeDashboard' );
   };
+
   render() {
     return (
       <ImageBackground
-        source={backgroundImage}
-        style={{ width : "100%", height : "100%" }}
+        source = {backgroundImage}
+        style  = {{ width : "100%", height : "100%" }}
       >
         <LoginView>
           <LoginPanel>
