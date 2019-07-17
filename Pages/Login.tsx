@@ -1,11 +1,12 @@
 import React from "react";
 
-import styled              from "styled-components/native";
-import { ImageBackground } from "react-native";
-import { globalPadding }   from "../Components/constants";
+import styled               from "styled-components/native";
+import { ImageBackground }  from "react-native";
+import { globalPadding }    from "../Components/constants";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const backgroundImage = require("../assets/fullscreenBG.jpg");
-const logoImage = require("../assets/tempLogo.png");
+const logoImage       = require("../assets/tempLogo.png");
 
 const LoginView = styled.View`
   display         : flex;
@@ -24,8 +25,9 @@ const LoginPanel = styled.View`
   align-items      : center;
   border-radius    : 5px;
   background-color : rgb(255, 254, 252);
-  width            : 70%;
-  height           : 30%;
+  width            : 300px;
+  height           : 350px;
+  box-shadow       : rgba(0, 0, 0, 0.1) 0px 5px 8px;
 `;
 
 const LoginField = styled.View`
@@ -35,7 +37,7 @@ const LoginField = styled.View`
 `;
 
 const LoginHeader = styled.Text`
-  font-size   : 22px;
+  font-size   : 26px;
   text-align  : center;
   fontWeight  : bold;
 `;
@@ -47,37 +49,43 @@ const LoginLogo = styled.Image`
 
 const LoginButtonText = styled.Text`
   font-size : 16px;
-  color     : #d88;
+  color     : #277;
 `;
 
-const RegisterField = styled.View`
-  display         : flex;
-  flex-direction  : row;
-  width           : 70%;
-  justify-content : center;
-  padding         : 5px;
+const RegisterButtonField = styled.View`
+  display          : flex;
+  flex-direction   : row;
+  padding          : 6px 0px;
+  border-radius    : 3px;
+  font-weight      : 500;
+  background       : rgba(242, 241, 238, 0.6);
+  border           : 1.5px solid #d88;
+  box-shadow       : rgba(0, 0, 0, 0.1) 0px 2px 3px;
+  margin-top       : 5px;
+  margin-bottom    : 5px;
+  justify-content  : center;
+  width            : 100%;
 `;
 
 const RegisterButtonText = styled.Text`
-  font-size             : 12px;
-  color                 : navy;
-  text-decoration       : underline;
-  text-decoration-color : navy;
+  font-size : 16px;
+  color     : #d88;
 `;
 
 const NewUserText = styled.Text`
-  font-size : 12px;
-  color     : rgba(55, 53, 47, 0.6);
+  font-size  : 16px;
+  textAlign  : center;
+  fontWeight : bold;
 `;
 
 const LoginButtonField = styled.View`
   display          : flex;
   flex-direction   : row;
-  padding          : 4px 0px;
+  padding          : 6px 0px;
   border-radius    : 3px;
   font-weight      : 500;
   background       : rgba(242, 241, 238, 0.6);
-  border           : 1.5px solid #d88;
+  border           : 1.5px solid #277;
   box-shadow       : rgba(0, 0, 0, 0.1) 0px 2px 3px;
   margin-top       : 5px;
   margin-bottom    : 5px;
@@ -171,14 +179,22 @@ export default class LoginPage extends React.PureComponent<IProps, IState> {
               />
             </LoginField>
             <LoginField>
-              <LoginButtonField>
-                <LoginButtonText onPress = {this.onLoginPress}>Continue</LoginButtonText>
-              </LoginButtonField>
+              <TouchableOpacity onPress = {this.onLoginPress}>
+                <LoginButtonField>
+                  <LoginButtonText>Continue</LoginButtonText>
+                </LoginButtonField>
+              </TouchableOpacity>
             </LoginField>
-            <RegisterField>
-              <NewUserText>New user? </NewUserText>
-              <RegisterButtonText onPress = {this.onRegisterPress}>Register</RegisterButtonText>
-            </RegisterField>
+            <LoginField>
+              <NewUserText>Don't have an account?</NewUserText>
+            </LoginField>
+            <LoginField>
+              <TouchableOpacity onPress = {this.onRegisterPress}>
+                <RegisterButtonField>
+                  <RegisterButtonText>Register</RegisterButtonText>
+                </RegisterButtonField>
+              </TouchableOpacity>
+            </LoginField>
           </LoginPanel>
         </LoginView>
     </ImageBackground>
