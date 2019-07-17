@@ -4,7 +4,8 @@ import styled              from "styled-components/native";
 import { ImageBackground } from "react-native";
 import { globalPadding }   from "../Components/constants";
 
-const backgroundImage = require("../assets/640-Scenic-l.jpg");
+const backgroundImage = require("../assets/fullscreenBG.jpg");
+const logoImage = require("../assets/tempLogo.png");
 
 const LoginView = styled.View`
   display         : flex;
@@ -18,62 +19,83 @@ const LoginView = styled.View`
 const LoginPanel = styled.View`
   display          : flex;
   flex-direction   : column;
-  padding          : 30px;
+  padding          : 15px;
   justify-content  : center;
   align-items      : center;
-  border-radius    : 8px;
-  background-color : lightblue;
-  width            : 50%;
+  border-radius    : 5px;
+  background-color : rgb(255, 254, 252);
+  width            : 70%;
   height           : 30%;
 `;
 
 const LoginField = styled.View`
   display : flex;
-  width   : 75%;
+  width   : 100%;
+  padding : 5px;
 `;
 
 const LoginHeader = styled.Text`
-  font-size     : 18;
-  text-align    : center;
-  margin-bottom : 30px;
+  font-size   : 22px;
+  text-align  : center;
+  fontWeight  : bold;
 `;
 
-const LoginLogo = styled.Text`
-  width  : 100%;
-  height : 20px;
-  border : 1px solid purple;
+const LoginLogo = styled.Image`
+  width    : 100px;
+  height   : 100px;
 `;
 
-const ButtonText = styled.Text`
-  font-size : 18px;
-  color     : navy;
-  margin    : 0 10px;
+const LoginButtonText = styled.Text`
+  font-size : 16px;
+  color     : #d88;
 `;
 
-const ButtonRow = styled.View`
+const RegisterField = styled.View`
+  display         : flex;
+  flex-direction  : row;
+  width           : 70%;
+  justify-content : center;
+  padding         : 5px;
+`;
+
+const RegisterButtonText = styled.Text`
+  font-size             : 12px;
+  color                 : navy;
+  text-decoration       : underline;
+  text-decoration-color : navy;
+`;
+
+const NewUserText = styled.Text`
+  font-size : 12px;
+  color     : rgba(55, 53, 47, 0.6);
+`;
+
+const LoginButtonField = styled.View`
   display          : flex;
   flex-direction   : row;
+  padding          : 4px 0px;
+  border-radius    : 3px;
+  font-weight      : 500;
+  background       : rgba(242, 241, 238, 0.6);
+  border           : 1.5px solid #d88;
+  box-shadow       : rgba(0, 0, 0, 0.1) 0px 2px 3px;
+  margin-top       : 5px;
+  margin-bottom    : 5px;
   justify-content  : center;
   width            : 100%;
-  margin-top       : 15px;
-  background-color : red;
-  height           : 100px;
 `;
 
 const FieldText = styled.Text`
-  padding-left : 4px;
+  color      : rgba(55, 53, 47, 0.6);
+  font-size  : 14px;
 `;
 
-const EmailInput = styled.TextInput`
-  border        : 1px solid navy;
-  padding       : 4px;
-  border-radius : 4px;
-`;
-
-const PasswordInput = styled.TextInput`
-  border        : 1px solid navy;
-  padding       : 4px;
-  border-radius : 4px;
+const UserInput = styled.TextInput`
+  border         : 1px solid rgba(55, 53, 47, 0.6);
+  background     : rgba(242, 241, 238, 0.6);
+  padding        : 4px 10px;
+  border-radius  : 3px;
+  font-size      : 14px;
 `;
 
 interface IProps {}
@@ -84,6 +106,7 @@ interface IState {
 }
 
 export default class LoginPage extends React.PureComponent<IProps, IState> {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -120,32 +143,45 @@ export default class LoginPage extends React.PureComponent<IProps, IState> {
         style  = {{ width : "100%", height : "100%" }}
       >
         <LoginView>
+          <LoginLogo
+            source = {logoImage}
+          />
           <LoginPanel>
-            <LoginLogo>[ --- --- --- A LOGO --- --- --- ]</LoginLogo>
-            <LoginHeader>Welcome. Please log-in.</LoginHeader>
             <LoginField>
-              <FieldText>email</FieldText>
-              <EmailInput
-                onChangeText = {this.emailChange}
-                value        = {this.state.email}
-                placeholder  = "email"
+              <LoginHeader>Log In</LoginHeader>
+            </LoginField>
+            <LoginField>
+              <FieldText>EMAIL</FieldText>
+              <UserInput
+                keyboardType  = {"email-address"}
+                returnKeyType = {"next"}
+                onChangeText  = {this.emailChange}
+                value         = {this.state.email}
+                placeholder   = "Enter your email address..."
               />
             </LoginField>
             <LoginField>
-              <FieldText>password</FieldText>
-              <PasswordInput
-                onChangeText = {this.passwordChange}
-                value        = {this.state.password}
-                placeholder  = "password"
+              <FieldText>PASSWORD</FieldText>
+              <UserInput
+                secureTextEntry = {true}
+                returnKeyType   = {"done"}
+                onChangeText    = {this.passwordChange}
+                value           = {this.state.password}
+                placeholder     = "Enter your password..."
               />
             </LoginField>
-            <ButtonRow>
-              <ButtonText onPress = {this.onLoginPress    }>Login</ButtonText>
-              <ButtonText onPress = {this.onRegisterPress }>Register</ButtonText>
-            </ButtonRow>
+            <LoginField>
+              <LoginButtonField>
+                <LoginButtonText onPress = {this.onLoginPress}>Continue</LoginButtonText>
+              </LoginButtonField>
+            </LoginField>
+            <RegisterField>
+              <NewUserText>New user? </NewUserText>
+              <RegisterButtonText onPress = {this.onRegisterPress}>Register</RegisterButtonText>
+            </RegisterField>
           </LoginPanel>
         </LoginView>
-      </ImageBackground>
+    </ImageBackground>
     );
   }
 }

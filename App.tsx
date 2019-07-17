@@ -23,6 +23,7 @@ const AppNavigator = createStackNavigator(
     {
         initialRouteName : 'Login',
         defaultNavigationOptions : {
+            header      : null,
             headerStyle : {
                 backgroundColor : '#D88'
             },
